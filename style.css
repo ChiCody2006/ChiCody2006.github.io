@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color:rgb(0, 0, 0);
+}
+
+li{
+    list-style: none;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+    display:block;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+}
+
+.brand {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.navbarlinks ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbarlinks li{
+    list-style: none;
+}
+
+.navbarlinks li a {
+    text-decoration: none;
+    color: white;
+    padding: 1.2rem;
+    display:block;
+}
+
+.navbarlinks li:hover {
+    background-color: #555;
+}
+
+.togglebutton {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.togglebutton .bar {
+    height: .3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+.dropdowncontent {
+    display: none;
+    position: absolute;
+    left:0;
+    width:auto;
+    background-color: #333;
+    z-index: 1;
+    
+}
+
+.dropdowncontent ul {
+    display: block;
+}
+
+.dropdowncontent a {
+    display: block;
+}
+
+.dropdowncontent li {
+    width: 100%;
+}
+
+.dropdown:hover .dropdowncontent{
+    display: block;
+}
+
+.row {
+    display: flex;
+}
+
+.column-left {
+    left:0;
+    width:50%;
+}
+.column-left img {
+    float: left;
+    width: 50%;
+    height: auto;
+}
+
+.column-right {
+    float: right;
+    right:0;
+    width:50%;
+}
+.column-right img {
+    width:50%;
+    height:auto;
+}
+
+.divider {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .togglebutton {
+        display:flex;
+    }
+    .navbarlinks {
+        display:none;
+        width: 100%;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items:flex-start;
+    }
+    .navbarlinks ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    .navbarlinks li {
+        text-align: center;
+    }
+    .navbarlinks li a {
+        padding: .5rem 1rem;
+    }
+    .navbarlinks.active {
+        display: flex;
+    }
+}
