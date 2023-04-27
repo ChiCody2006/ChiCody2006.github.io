@@ -4,8 +4,21 @@
 
 body {
     margin: 0;
-    padding: 1;
+    padding: 0;
     color:rgb(0, 0, 0);
+}
+
+header {
+    padding: 0px 20px;
+}
+
+.container {
+    padding: 0px 20px;
+}
+
+.headDiv {
+    background-color: rgb(207, 206, 206);
+    text-align: center;
 }
 
 li{
@@ -126,11 +139,7 @@ li a{
 .column-right img {
     width:50%;
     height:auto;
-}
-
-.divider {
-    border-top: 8px solid #bbb;
-    border-radius: 5px;
+    
 }
 
 @media (max-width: 600px) {
