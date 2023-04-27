@@ -27,8 +27,8 @@
                             <a href="mainprojects.html" >Projects</a>
                             <div class="dropdowncontent">
                                 <ul>
-                                    <li><a href="#">Spong</a></li>
-                                    <li><a href="project-platformer.html">0Velocity</a></li>
+                                    <li><a href="project-spong">Spong</a></li>
+                                    <li><a href="#">0Velocity</a></li>
                                     <li><a href="#">Other Games</a></li>
                                 </ul>
                             </div>
@@ -40,28 +40,155 @@
         </nav>
 
         <header>
-            <h1>0Velocity</h1>
-            <h2>Made for the Roslyn High School Hackathon</h2>
+            <h1>Vectors</h1>
+            <h2>A game about changing vectors</h2>
         </header>
         <div class="container">
             
-            <h3>Concept</h3>
-            <p>For the hackathon, I needed something that would be easy and quick to make, and that was already fun, as I didn't have the time
-                to come up with an original idea and make prototypes to test if it's fun. However, the game also had to be complex enough to 
-                allow for other ideas to come in as well. That is why I chose the game Pong, as I already had a unique spin(pun intended) in mind 
-                for the game. The basic idea was to add the ability to rotate the paddles while playing.
+            <h2 class = "headDiv">Concept</h2>
+            <p>
+                For my next game I wanted to do something a little more advanced, and so I decided to create a platformer, like most game developers do 
+                when starting off. The concept was created based on the premise that a game idea should be able to be described in one sentence, and 
+                are usually a simple genre of a game but with a twist. My twist was going to be that the player could control the direction of 
+                any moving object (sentence would be: "A platformer where the player can control the direction of any moving object.")
             </p>
             
-            <div class = "divider"></div>
+            <h2 class = "headDiv">Version 0: Prototyping</h2>
 
+            <h3 class = "headDiv">Design: 4/10</h3>
             <div class="row">
                 <div class="column-left"> 
-                    
+                    <p>
+                        Since this is a prototype to try and flesh out how the game will look/feel first, and to test if the game idea is even fun,
+                        I just needed a quick background and ground using tile maps, plus a random shape for the player for now. I got the background 
+                        tiles from the Unity asset store (<a href="https://assetstore.unity.com/packages/2d/environments/nature-pixel-art-base-assets-free-151370">here</a>) and colored in the tiles myself using a tile palette made of these tiles.
+                    </p>
                 </div>
                 <div class="column-right">
+                    <img src="Vectors Documentation/Version 0/Initial Design With Tilemaps.png">
+                    <br/>
+                    <caption>Version 0: Initial Design for Level 1</caption>
+                </div>
+            </div>
+
+            <h3 class = "headDiv">Player Movement: 4/10-4/11</h3>
+            <div class="row">
+                <div class="column-left"> 
+                    <p>
+                        I coded out the basic player movement (Unity has an Input Manager that takes in names like Horizontal and Jump), 
+                        so that was very simple. However, I wanted to add two things to the movement that would allow for a smoother feel and 
+                        an easier time testing- Coyote time and Jump Buffer. Coyote time is the time that you have to jump after you are no longer 
+                        standing on the ground, and you can see this in games like Celeste or Hollow Knight. Jump buffer is a time before a jump where 
+                        the player can press the jump button and still jump even if they are not on the ground. I also added something that controls 
+                        the height you go depending on how long the jump button is pressed.
+                    </p>
+                </div>
+                <div class="column-right">
+                    <img src="Vectors Documentation/Version 0/Player Movement.png">
+                    <br/>
+                    <caption>Main code for player movement, including coyote time and jump buffer code</caption>
+                    <br/>
+                    <img src="Vectors Documentation/Version 0/Player Movement Variables.png">
+                    <br/>
+                    <caption>Variables for the movement</caption>
+                    <br/>
+                    <img src="Vectors Documentation/Version 0/Player Movement Other Methods.png">
+                    <br/>
+                    <caption>Is grounded methods and Fixed Update, which is better for physics than update</caption>
+                    <br/>
+                </div>
+            </div>
+
+            <h3 class = "headDiv">Tutorial: 4/11-4/13</h3>
+            <div class="row">
+                <div class="column-left"> 
+                    <p>
+                        Next, since all I've been doing to explain my game's rules are a rule sheet, I wanted to make a tutorial that would guide
+                        the player through the controls using pop-ups instead of having a bunch of text explaining what the rules are. I wanted to make 
+                        a pop-up for the left-right movement of the player, one for jumping, and one for the main mechanic, changing vectors. I wanted 
+                        to have the player change the vector of themselves and that's why I made the design a giant hole. I used an array for the 
+                        pop-ups so that they would come in order, but the index had to be outside because the update function runs once every frame.
+                    </p>
+                </div>
+                <div class="column-right">
+                    <img src="Vectors Documentation/Version 0/Tutorial Design.png">
+                    <br/>
+                    <caption>Design with all pop-ups visible</caption>
+                    <br/>
+                    <img src="Vectors Documentation/Version 0/Tutorial Script.png">
+                    <br/>
+                    <caption>Code to manage tutorial</caption>
+                    <br/>
+                </div>
+            </div>
+
+            <h3 class = "headDiv">Logic Manager: 4/13</h3>
+            <div class="row">
+                <div class="column-left"> 
+                    <p>
+                        Normally the logic manager keeps track of more, but in this case it is a prototype so I only needed it to reset the player in 
+                        case it fell off.
+                    </p>
+                </div>
+                <div class="column-right">
+                    <img src="Vectors Documentation/Version 0/LogicManager.png">
+                    <br/>
+                    <caption>Code to reset the player's position</caption>
+                    <br/>
                     
                 </div>
             </div>
+
+            <h3 class = "headDiv">Initial Change Vector Script: 4/14-4/15</h3>
+            <div class="row">
+                <div class="column-left"> 
+                    <p>
+                        The main mechanic was the hardest to code by far, partially because for the initial Change Vector Script(something that I
+                        can later attach to any object I want the player to control) I was not using Fixed Update for any velocity changes or physics 
+                        updates because I wasn't sure how to connect the Update and FixedUpdate functions in Unity. I also tried to set the velocity, 
+                        which doesn't work out. The code ended up only working in the y direction with the x-direction not moving at all.
+                    </p>
+                </div>
+                <div class="column-right">
+                    <img src="Vectors Documentation/Version 0/Change Vector Version 0.png">
+                    <br/>
+                    <caption>Initial script for the change vector mechanic</caption>
+                    <br/>
+                </div>
+            </div>
+
+            <h3 class = "headDiv">Change Vector Script: 4/16-4/20</h3>
+            <div class="row">
+                <div class="column-left"> 
+                    <p>
+                        After trying and failing to set the velocity directly to something, I gave up and looked for any alternatives to move objects.
+                        Transform.translate, adding to rigidbody velocity, multiplying, etc. and I finally found one that worked. It was the add force 
+                        function. After testing out the different force modes of the function, I settled on the default. I also used a lot of booleans 
+                        and other float variables to connect my FixedUpdate to my Update. This was important because FixedUpdate, being physics based, 
+                        did not work well when I stopped the time in my game to make it easier for the player to aim. That was Update's job, so I had 
+                        to try and connect the two. I also got rid of using the OnMouseDown functions because they could not relate to time, and that 
+                        made it so I could click anywhere on the screen instead of just the object to move it, so I had to add RayCasts to the code so 
+                        that it would know what my mouse clicked.
+                    </p>
+                </div>
+                <div class="column-right">
+                    <img src="Vectors Documentation/Version 0/Change Vector Update Version 1.0.png">
+                    <br/>
+                    <caption>Update function of the Change Vector Script (I also added an arrow that rotates with the mouse)</caption>
+                    <br/>
+                    <img src="Vectors Documentation/Version 0/Fixed Update Change Vector Version 1.0.png">
+                    <br/>
+                    <caption>Fixed Update function of the Change Vector Script</caption>
+                    <br/>
+                    <img src="Vectors Documentation/Version 0/Change Vector Update Version 1.1.png">
+                    <br/>
+                    <caption>Update function of the Change Vector Script after RayCasts</caption>
+                    <br/>
+                </div>
+            </div>
+            <h3 class = "headDiv">Link to Prototype</h3>
+            <p>Here is the link to the prototype.</p>
+            <a href="https://drive.google.com/file/d/14tBmuva2zlTzr1vM98GuOa6c8DPFexAr/view?usp=sharing">link</a>
 
             
 
