@@ -10,3 +10,4 @@ Githubs of both games are also in the website pages.
 
 All of the content in the html files and css files were done manually by me because I wanted the experience with working in css.
 The Javascript was from a tutorial on changing the format of the navbar into a burger menu so that mobile users could read it better. 
+ 
