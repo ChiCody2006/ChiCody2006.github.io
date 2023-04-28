@@ -9,6 +9,10 @@ body {
     overflow-x:hidden;
 }
 
+.row {
+    display: flex;
+}
+
 header {
     padding: 0px 20px;
 }
@@ -148,7 +152,7 @@ font-family: 'Play', sans-serif;
 text-align:center;
 }
 
-.footer .row{
+.footer .frow{
 width:100%;
 margin:1% 0%;
 padding:0.6% 0%;
@@ -157,26 +161,26 @@ font-size:0.8em;
 text-align:center;
 }
 
-.footer .row a{
+.footer .frow a{
 text-decoration:none;
 color:gray;
 transition:0.5s;
 }
 
-.footer .row a:hover{
+.footer .frow a:hover{
 color:#fff;
 }
 
-.footer .row ul{
+.footer .frow ul{
 width:100%;
 }
 
-.footer .row ul li{
+.footer .frow ul li{
 display:inline-block;
 margin:0px 30px;
 }
 
-.footer .row a i{
+.footer .frow a i{
 font-size:2em;
 margin:0% 1%;
 }
@@ -186,12 +190,12 @@ margin:0% 1%;
 text-align:left;
 padding:5%;
 }
-.footer .row ul li{
+.footer .frow ul li{
 display:block;
 margin:10px 0px;
 text-align:left;
 }
-.footer .row a i{
+.footer .frow a i{
 margin:0% 3%;
 }
 }
