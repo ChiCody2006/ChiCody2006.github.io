@@ -44,6 +44,7 @@ li a{
 .brand {
     font-size: 1.5rem;
     margin: .5rem;
+    color: white; 
 }
 
 .navbarlinks ul {
