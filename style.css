@@ -119,9 +119,6 @@ li a{
     display: block;
 }
 
-.row {
-    display: flex;
-}
 
 .column-left {
     left:0;
